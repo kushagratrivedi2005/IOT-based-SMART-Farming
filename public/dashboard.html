@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smart Farming</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        footer {
+                position:sticky; /* Sticks footer at the bottom */
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar Section -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alerts.html">Threshold Values</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="map.html">Farm MAP</a></li>
+                <li><a href="results.html">View Results</a><li>
+            </ul>
+        </nav>
+        <h1>Smart Farming Dashboard</h1>
+    </header>
+
+    <main>
+        <section class="data-container">
+            <div class="status-box" id="humidity">
+                <a href="graph1.html" id="graph1Link" target="_blank">
+                    <h2>Humidity</h2>
+                    <p><span id="field1">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField1">Clear Alert</button>
+            </div>            
+            <div class="status-box" id="temperature">
+                <a href="graph2.html" id="graph2Link" target="_blank">
+                    <h2>Temperature</h2>
+                    <p><span id="field2">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField2">Clear Alert</button>
+            </div>
+            <div class="status-box" id="co2-levels">
+                <a href="graph3.html" id="graph3Link" target="_blank">
+                    <h2>CO2 Levels</h2>
+                    <p><span id="field3">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField3">Clear Alert</button>
+            </div>
+            <div class="status-box" id="tvoc">
+                <a href="graph4.html" id="graph4Link" target="_blank">
+                    <h2>TVOC</h2>
+                    <p><span id="field4">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField4">Clear Alert</button>
+            </div>
+        </section>
+
+        <section class="data-container">
+            <div class="status-box" id="ldr">
+                <a href="graph5.html" id="graph5Link" target="_blank">
+                    <h2>LDR</h2>
+                    <p><span id="field5">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField5">Clear Alert</button>
+            </div>
+            <div class="status-box" id="soil-moisture-resistive">
+                <a href="graph6.html" id="graph6Link" target="_blank">
+                    <h2>Soil Moisture (Resistive)</h2>
+                    <p><span id="field6">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField6">Clear Alert</button>
+            </div>
+            <div class="status-box" id="soil-moisture-capacitive">
+                <a href="graph7.html" id="graph7Link" target="_blank">
+                    <h2>Soil Moisture (Capacitive)</h2>
+                    <p><span id="field7">--</span></p>
+                </a>
+                <button class="clear-alert-button" id="clearAlertField7">Clear Alert</button>
+            </div>
+            <div class="status-box" id="solenoid-valve">
+                <h2>Solenoid Valve</h2>
+                <p><span id="field8">--</span></p>
+            </div>
+        </section>
+        
+        <div id="field1" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+        <div id="field2" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+        <div id="field3" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+        <div id="field4" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+        <div id="field5" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+        <div id="field6" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+        <div id="field7" style="width: 100%; height: 100%; max-width: 800px; max-height: 600px; margin: auto;"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Smart Farming Dashboard</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</body>
+
+</html>

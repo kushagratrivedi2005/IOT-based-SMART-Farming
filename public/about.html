@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Smart Farming Solutions</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Better font for professionalism */
+            line-height: 1.6;
+            background-color: #f9f9f9; /* Light background for contrast */
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            max-width: 800px; /* Limit the width for better readability */
+            margin: 20px auto; /* Centering main content */
+            padding: 20px;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h2 {
+            color: #2E8B57; /* Header color */
+        }
+        .review {
+            text-align: center;
+            padding: 20px;
+        }
+        .img-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .person-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover; /* Ensure image fits within the container */
+            border: 3px solid #2E8B57; /* Green border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Image shadow */
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            background-color: #2E8B57; /* Button color */
+            color: white; /* Button text color */
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+        button:hover {
+            background-color: #1B5E20; /* Darker green on hover */
+        }
+        .mission {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e2f7e2; /* Light green background for mission */
+            border-left: 5px solid #2E8B57; /* Left border */
+        }
+        footer {
+                position:sticky; /* Sticks footer at the bottom */
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navbar Section -->
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alerts.html">Threshold Values</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="map.html">Farm MAP</a></li>
+                <li><a href="results.html">View Results</a><li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>About Our Smart Farming Solution</h2>
+        <p>
+            At Smart Farming Solutions, our team is dedicated to improving agriculture with innovative technology. We focus on delivering real-time data to help farmers optimize their farming operations. Here’s a look at the contributions of each team member:
+        </p>
+
+        <!-- Mission Statement Section -->
+        <div class="mission">
+            <h3>Our Mission</h3>
+            <p>
+                To empower farmers with smart technology that enhances productivity and sustainability, ensuring food security for future generations.
+            </p>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="review">
+            <div class="img-container">
+                <img src="" alt="Team Member" class="person-img" id="person-image">
+            </div>
+            <h4 class="author" id="person-name">John Doe</h4>
+            <p class="job" id="person-job">Chief Technology Officer</p>
+            <p class="info" id="person-info">John leads our technology initiatives and ensures that our solutions meet the highest standards of innovation and reliability.</p>
+            <div class="button-container">
+                <button id="prev-btn">&lt; Prev</button>
+                <button id="next-btn">Next &gt;</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>© 2024 Smart Farming Solutions. All rights reserved.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="about.js"></script>
+</body>
+</html>

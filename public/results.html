@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next 24 Hours Forecast</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333; /* Dark text color */
+        }
+        main {
+            padding: 20px;
+            max-width: 1200px; /* Slightly wider for more content */
+            margin: 20px auto; /* Center the main content */
+            background-color: white; /* White background for main content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+        }
+        h2 {
+            color: #2c3e50; /* Darker blue heading */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #resultsContainer {
+            display: grid; /* Use grid layout */
+            grid-template-columns: repeat(4, 1fr); /* 4 columns on the first row */
+            gap: 15px; /* Space between boxes */
+            margin-top: 20px; /* Space above results */
+        }
+        .result-item {
+            padding: 15px;
+            border: 1px solid #ccc; /* Border around items */
+            border-radius: 5px; /* Rounded corners for items */
+            background-color: #fff; /* White background for result items */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.2s; /* Animation for hover effect */
+        }
+        .result-item:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            background-color: #f0f8ff; /* Lighter blue background on hover */
+        }
+        .clock {
+            font-size: 1.2em; /* Clock font size */
+            color: #3498db; /* Blue color for time */
+        }
+        .calendar {
+            font-size: 1em; /* Calendar font size */
+            color: #8e44ad; /* Purple color for date */
+        }
+        h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: #e74c3c; /* Red color for field name headings */
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #95a5a6; /* Gray color for footer text */
+        }
+        /* Styles for the loading overlay */
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Make sure it is on top of everything */
+            visibility: hidden; /* Hidden by default */
+        }
+        #loadingOverlay.active {
+            visibility: visible;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3; /* Light gray background */
+            border-top: 4px solid #3498db; /* Blue spinner color */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-text {
+            font-size: 1.2em;
+            color: #fff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alerts.html">Threshold Values</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="map.html">Farm MAP</a></li>
+                <li><a href="results.html">View Results</a><li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Next 24 Hours Forecast</h2>
+        <div id="resultsContainer"></div> <!-- Placeholder for results -->
+    </main>
+
+    <footer>
+        <p>© 2024 Smart Farming Solutions. All rights reserved.</p>
+    </footer>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay">
+        <div>
+            <div class="spinner"></div>
+            <div class="loading-text">The algorithm is predicting values, please wait for a few seconds...</div>
+        </div>
+    </div>
+
+    <script>
+        // Field name mapping
+        const fieldMapping = {
+            field1: 'Humidity',
+            field2: 'Temperature',
+            field3: 'CO2',
+            field4: 'TVOC',
+            field5: 'Brightness',
+            field6: 'Resistive Soil Moisture',
+            field7: 'Capacitive Soil Moisture'
+        };
+
+        // Show the loading overlay
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.add('active');
+        }
+
+        // Hide the loading overlay
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.remove('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultsContainer = document.getElementById('resultsContainer');
+    
+            // Show the loading overlay
+            showLoading();
+    
+            fetch('/api/interval_predictions') // Adjust the URL if needed
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json(); // Parse JSON from the response
+                })
+                .then(data => {
+                    const predictions = data.predictions;
+    
+                    if (predictions) {
+                        let count = 0;
+                        for (const [field, values] of Object.entries(predictions)) {
+                            const fieldSection = document.createElement('div');
+                            fieldSection.className = 'field-section';
+                            fieldSection.innerHTML = `<h3>${fieldMapping[field] || field}</h3>`;
+    
+                            values.forEach(item => {
+                                const resultItem = document.createElement('div');
+                                resultItem.className = 'result-item';
+    
+                                const timeFormatted = new Date(item.Time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                                const dateFormatted = new Date(item.Time).toLocaleDateString();
+    
+                                resultItem.innerHTML = `
+                                    <div class="clock">🕒 ${timeFormatted}</div>
+                                    <div class="calendar">📅 ${dateFormatted}</div>
+                                    <div>Value: ${item.Value}</div>
+                                `;
+                                fieldSection.appendChild(resultItem);
+                            });
+    
+                            count++;
+                            resultsContainer.appendChild(fieldSection);
+                        }
+    
+                        // Adjust grid layout for the first row with 4 fields, next row with 3 fields
+                        resultsContainer.style.gridTemplateColumns = 'repeat(4, 1fr)'; // Set four columns for the first row
+                        if (count > 4) {
+                            resultsContainer.style.gridTemplateRows = 'auto auto'; // Create two rows
+                            resultsContainer.style.gridTemplateColumns = 'repeat(3, 1fr)'; // Set three columns for the second row
+                        }
+                    } else {
+                        resultsContainer.innerHTML = '<p>No results available.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    resultsContainer.innerHTML = '<p>Error fetching data. Please try again later.</p>';
+                })
+                .finally(() => {
+                    // Hide the loading overlay after the data is fetched
+                    hideLoading();
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin: 20px 0;
+    padding-bottom: 20px;    /* Sets bottom padding to 10 pixels */
+}
+
+header {
+    background-color: #27ae60;
+    padding: 20px 0;
+}
+
+footer {
+    background-color: #030303;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position:sticky; /* Sticks footer at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #34495e;
+}
+
+p {
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+.data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.status-box {
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.status-box:hover {
+    transform: translateY(-5px);
+}
+
+.status-box h2 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: #27ae60;
+    white-space: nowrap;
+}
+
+.status-box p {
+    font-size: 1.5em;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .data-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Prevent horizontal scrolling */
+body {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clear-alert-button {
+    background-color: #27ae60;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.clear-alert-button:hover {
+    background-color: #219653;
+}/* Reset margins and paddings for header and body */
+header, body {
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
+}
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #005b30; /* Dark green background color */
+    padding: 20px 0; /* Increased padding for height */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Display the list horizontally */
+}
+
+.navbar li {
+    margin: 0 10px; /* Add space between items */
+}
+
+.navbar a {
+    color: white; /* Original text color */
+    padding: 15px 20px;
+    font-size: 1.1em;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+    text-decoration: none; /* Ensure no underline on links */
+}
+
+.navbar a:hover {
+    background-color: white; /* Change background to white on hover */
+    color: black; /* Change text color to black on hover */
+    border-radius: 5px; /* Keep the border radius */
+}
+
+.navbar .active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack list items vertically on small screens */
+    }
+
+    .navbar a {
+        padding: 10px;
+        width: 100%; /* Full width on small screens */
+        text-align: center; /* Center text */
+    }
+}
+.navbar .active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: white; /* Active link color can remain white */
+    background-color: #219653; /* Optional: Highlight active link with a specific color */
+}

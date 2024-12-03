@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farming Solution</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light background color */
+            color: #333; /* Dark text color */
+        }
+        main {
+            padding: 20px;
+            max-width: 800px; /* Maximum width for content */
+            margin: 20px auto; /* Centering main content */
+            background-color: white; /* White background for main content */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        section {
+            margin-bottom: 30px; /* Space between sections */
+        }
+        h2 {
+            color: #2E8B57; /* Dark green headings */
+            border-bottom: 2px solid #2E8B57; /* Underline for headings */
+            padding-bottom: 5px;
+        }
+        .sensor-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping to next line */
+            justify-content: center; /* Center items */
+            gap: 10px; /* Minimal space between boxes */
+        }
+        .sensor-box {
+            background-color: #e8f5e9; /* Light green background for sensor boxes */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Reduced padding */
+            flex: 1 0 30%; /* Flex item that grows and takes up 30% of the container width */
+            max-width: 30%; /* Maximum width for each box */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-align: center; /* Center text in boxes */
+        }
+        .sensor-image {
+            width: 100%; /* Full width for images */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners for images */
+            margin: 10px 0; /* Space above and below images */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="alerts.html">Threshold Values</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="map.html">Farm MAP</a></li>
+                <li><a href="results.html">View Results</a><li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Welcome to Our Smart Farming Solution</h2>
+            <p>
+                Our project combines IoT technology with agriculture to create an intelligent farming solution. By utilizing a network of sensors connected to an ESP32, we monitor critical parameters such as soil moisture, temperature, and air quality. This real-time data helps farmers make informed decisions, enhancing crop health and yield.
+            </p>
+            <img src="iot image.jpeg" alt="Smart IoT Farming" class="sensor-image"> <!-- Replace with actual image path -->
+        </section>
+
+        <section id="sensors">
+            <h2>Our Sensor Network</h2>
+
+            <div class="sensor-container">
+                <div class="sensor-box">
+                    <h3>LDR (Light Dependent Resistor)</h3>
+                    <img src="ldr.jpeg" alt="LDR Sensor" class="sensor-image"> <!-- Replace with actual image path -->
+                    <p>
+                        The LDR sensor measures light intensity, allowing farmers to optimize sunlight exposure for crops.
+                    </p>
+                </div>
+
+                <div class="sensor-box">
+                    <h3>Capacitive Soil Moisture Sensor</h3>
+                    <img src="csm.jpg" alt="Capacitive Soil Moisture Sensor" class="sensor-image"> <!-- Replace with actual image path -->
+                    <p>
+                        The capacitive soil moisture sensor measures volumetric water content of the soil without direct contact.
+                    </p>
+                </div>
+
+                <div class="sensor-box">
+                    <h3>Resistive Soil Moisture Sensor</h3>
+                    <img src="rsm.jpeg" alt="Resistive Soil Moisture Sensor" class="sensor-image"> <!-- Replace with actual image path -->
+                    <p>
+                        The resistive soil moisture sensor works by measuring the electrical resistance of the soil.
+                    </p>
+                </div>
+
+                <div class="sensor-box">
+                    <h3>DHT22 Sensor</h3>
+                    <img src="dht22.webp" alt="DHT22 Sensor" class="sensor-image"> <!-- Replace with actual image path -->
+                    <p>
+                        The DHT-22 sensor monitors temperature and humidity levels essential for crop health.
+                    </p>
+                </div>
+
+                <div class="sensor-box">
+                    <h3>SGP30 Sensor</h3>
+                    <img src="sgp30.jpeg" alt="SGP30 Sensor" class="sensor-image"> <!-- Replace with actual image path -->
+                    <p>
+                        The SGP-30 sensor measures air quality parameters crucial for maintaining a healthy environment for crops.
+                    </p>
+                </div>
+            </div>
+
+            <p>
+                By integrating these sensors into our IoT platform, we provide farmers with comprehensive insights that drive efficient farming practices and enhance crop health.
+            </p>
+        </section>
+
+        <section id="farming-benefits">
+            <h2>Benefits of Smart Farming</h2>
+            <p>
+                Smart farming represents a revolutionary shift in agricultural practices. By integrating IoT solutions, farmers can significantly enhance productivity and sustainability. Key benefits include:
+            </p>
+            <p><strong>Increased Efficiency:</strong> Automating tasks reduces labor costs and increases operational efficiency.</p>
+            <p><strong>Resource Conservation:</strong> Smart irrigation and precise nutrient management minimize waste, conserving water and fertilizers.</p>
+            <p><strong>Improved Crop Health:</strong> Continuous monitoring allows for early detection of issues, enabling timely interventions.</p>
+            <p><strong>Data-Driven Decisions:</strong> Access to real-time data supports informed decision-making for better crop management.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Smart Farming Solutions. All rights reserved.</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
